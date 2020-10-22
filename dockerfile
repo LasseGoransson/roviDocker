@@ -52,10 +52,14 @@ RUN apt update && apt install -y vim \
                                  ssh \
                                  openssh* \
                                  sudo \
-                                 gdb \
+                                 gdb \ 
+                                 neovim \
+                                 curl \
                && rm -rf /var/lib/apt/lists/*
 
-
+# vim plug for nvim
+RUN sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Setting python
 RUN rm /usr/bin/python && ln -s /usr/bin/python3 /usr/bin/python 

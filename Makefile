@@ -13,7 +13,8 @@ create:
 		--cidfile $(container_id_file) \
 		--device /dev/dri:/dev/dri \
 		-e DISPLAY \
-		-v $(shell pwd)/execise:/home/user/execise \
+		-v ~/sem/rovi/:/home/user/rovi \
+		-v ~/.config/nvim/:/home/user/.config/nvim \
 		-e QT_X11_NO_MITSHM=1 \
 		-v /tmp/.X11-unix:/tmp/.X11-unix \
 		-v ~/.Xauthority:/root/.Xauthority \
